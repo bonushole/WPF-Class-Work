@@ -8,9 +8,9 @@
         Title="First Project" Height="340.278" Width="593.162">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=" 3"/>
-            <ColumnDefinition Width=" 3"/>
-            <ColumnDefinition Width=" 3"/>
+            <ColumnDefinition Width=" 100"/>
+            <ColumnDefinition Width=" 100"/>
+            <ColumnDefinition Width=" 100"/>
         </Grid.ColumnDefinitions>
         <Button Content= "Hello" Height=" 150" Width="150"/>
     </Grid>
