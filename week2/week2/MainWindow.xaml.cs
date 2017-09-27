@@ -24,5 +24,16 @@ namespace week2
         {
             InitializeComponent();
         }
+
+        private void checkBox_Checked(object sender, RoutedEventArgs e)
+        {
+            button.IsEnabled = !button.IsEnabled;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "Words";
+            passwordBox.Password = "I'm not telling you my password";
+        }
     }
 }
