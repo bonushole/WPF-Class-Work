@@ -35,5 +35,10 @@ namespace week2
             textBox.Text += "Words";
             passwordBox.Password = "I'm not telling you my password";
         }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
