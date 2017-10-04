@@ -1,0 +1,18 @@
+﻿<Window x:Class="ATM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ATM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid Name="WelcomePage" Visibility="Visible">
+            <Button x:Name="enterButton" Content="Click here to begin" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Click="enterButton_Click" />
+
+        </Grid>
+        <Grid Name="MainWindow" Visibility="Collapsed">
+            
+        </Grid>
+    </Grid>
+</Window>
