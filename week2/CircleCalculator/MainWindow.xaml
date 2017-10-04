@@ -1,0 +1,19 @@
+﻿<Window x:Class="CircleCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CircleCalculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Label x:Name="rLabel" Content="radius" HorizontalAlignment="Left" Height="23" Margin="25,74,0,0" VerticalAlignment="Top" Width="88"/>
+        <Label x:Name="cLabel" Content="circumference" HorizontalAlignment="Left" Height="23" Margin="25,102,0,0" VerticalAlignment="Top" Width="88"/>
+        <Label x:Name="aLabel" Content="area" HorizontalAlignment="Left" Height="23" Margin="25,130,0,0" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="rBox" HorizontalAlignment="Left" Height="23" Margin="132,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged ="textBox_TextChanged"/>
+        <TextBox x:Name="cBox" HorizontalAlignment="Left" Height="23" Margin="132,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged"/>
+        <TextBox x:Name="aBox" HorizontalAlignment="Left" Height="23" Margin="132,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged"/>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="257,38,0,0" VerticalAlignment="Top" Width="122" ValueChanged="slider_ValueChanged"/>
+
+    </Grid>
+</Window>
