@@ -20,10 +20,14 @@ namespace week3
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+
+            
         }
+
 
         private void firstGridButton_Click(object sender, RoutedEventArgs e)
         {

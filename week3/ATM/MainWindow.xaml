@@ -7,12 +7,42 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Grid Name="WelcomePage" Visibility="Visible">
-            <Button x:Name="enterButton" Content="Click here to begin" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Click="enterButton_Click" />
+        <Grid Name="WelcomePage" Visibility="Visible" d:IsHidden="True">
+            <Button x:Name="enterButton" Content="Click here to begin" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="150" Click="enterButton_Click" d:IsHidden="True" />
 
         </Grid>
-        <Grid Name="MainWindow" Visibility="Collapsed">
+        <Grid Name="mainMenu" d:IsHidden="True" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="172*"/>
+                <RowDefinition Height="23*"/>
+            </Grid.RowDefinitions>
             
+            <StackPanel HorizontalAlignment="Center"  Margin="0" VerticalAlignment="Center" >
+                <Label x:Name="balanceLabel" Content="Balance should be here." HorizontalAlignment="Center"/>
+
+                <Button x:Name="withdrawalButton" Content="Withdrawal" HorizontalAlignment="Center" Click="withdrawalButton_Click"/>
+                <Button x:Name="depositButton" Content="Deposit" HorizontalAlignment="Center" Click="depositScreenButton_Click"/>
+                <Button x:Name="exitButton" Content="Exit" HorizontalAlignment="Center" Click="exitButton_Click"/>
+            </StackPanel>
+            
+
+        </Grid>
+        <Grid Name="withdrawScreeen">
+            <StackPanel HorizontalAlignment="Center"  Margin="0" VerticalAlignment="Center">
+                <TextBox x:Name="withdrawBox" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top" />
+                <Button Content="Withdraw" Click="withdrawButton_Click"/>
+                <Button Content="Exit" Click="enterButton_Click"/>
+            </StackPanel>
+            
+        </Grid>
+
+        <Grid Name="depositScreen">
+            <StackPanel HorizontalAlignment="Center"  Margin="0" VerticalAlignment="Center">
+                <TextBox x:Name="depositBox" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top" />
+                <Button Content="Deposit" Click="depositButton_Click"/>
+                <Button Content="Exit" Click="enterButton_Click"/>
+            </StackPanel>
+
         </Grid>
     </Grid>
 </Window>
