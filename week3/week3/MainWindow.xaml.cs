@@ -24,5 +24,18 @@ namespace week3
         {
             InitializeComponent();
         }
+
+        private void firstGridButton_Click(object sender, RoutedEventArgs e)
+        {
+            secondGrid.Visibility = Visibility.Visible;
+            firstGrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void secondGridButton_Click(object sender, RoutedEventArgs e)
+        {
+            firstGrid.Visibility = Visibility.Visible;
+            secondGrid.Visibility = Visibility.Collapsed;
+            
+        }
     }
 }

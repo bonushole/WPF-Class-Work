@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <WrapPanel>
+        <Grid Name="firstGrid" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <Button Name="firstGridButton" Height="100" Width="100" Content="Button" Click="firstGridButton_Click"/>
+
+        </Grid>
+        <Grid Name="secondGrid" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button Name="secondGridButton" Height="100" Width="100" Content="Second Button" Click ="secondGridButton_Click"/>
+        </Grid>
+        </WrapPanel>
+
     </Grid>
 </Window>
