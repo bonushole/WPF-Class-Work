@@ -15,27 +15,24 @@ using System.Windows.Shapes;
 namespace BetterATM
 {
     /// <summary>
-    /// Interaction logic for WithdrawWindow.xaml
+    /// Interaction logic for TransferWindow.xaml
     /// </summary>
-    public partial class WithdrawWindow : Window
+    public partial class TransferWindow : Window
     {
         Account account;
-       
-        public WithdrawWindow(Account account)
+        public TransferWindow(Account account)
         {
             this.account = account;
 
             InitializeComponent();
         }
-        
-        
 
-        private void withdrawButton_Click(object sender, RoutedEventArgs e)
+        private void transferButton_Click(object sender, RoutedEventArgs e)
         {
-            account.balance-=double.Parse(depositBox.Text);
+            account.sendMoney(accountNameBox.Text, double.Parse(amountBox.Text));
             this.Close();
-            
         }
+
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

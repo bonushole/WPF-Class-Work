@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AccountSubwindows\TransferWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AccountSubwindows\WithdrawWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,6 +85,9 @@
     </Compile>
     <Compile Include="AccountSubwindows\DepositWindow.xaml.cs">
       <DependentUpon>DepositWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AccountSubwindows\TransferWindow.xaml.cs">
+      <DependentUpon>TransferWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AccountSubwindows\WithdrawWindow.xaml.cs">
       <DependentUpon>WithdrawWindow.xaml</DependentUpon>

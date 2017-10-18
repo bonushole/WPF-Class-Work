@@ -11,12 +11,14 @@ namespace BetterATM
         public string userName;
         public double balance;
         string password;
+        Action<string, double, Account> transferFunds;
 
-        public Account(string userName, double balance, string password) {
+        public Account(string userName, double balance, string password, Action<string, double, Account> transferFunds) {
 
             this.userName = userName;
             this.balance = balance;
             this.password = password;
+            this.transferFunds = transferFunds;
 
         }
 
@@ -31,8 +33,12 @@ namespace BetterATM
             {
                 return false;
             }
+        }
+        public void sendMoney(string accountName, double amount){
 
-
+            transferFunds(accountName, amount, this);
+            
+            }
         }
     }
-}
+

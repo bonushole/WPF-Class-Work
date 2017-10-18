@@ -20,36 +20,44 @@ namespace BetterATM
     public partial class BalanceWindow : Window
     {
         Account account;
-        Action<MainWindow.windowType> changeWindow;
-
-        public BalanceWindow(Account account, Action<MainWindow.windowType> changeWindow)
+       
+        public BalanceWindow(Account account)
         {
             this.account = account;
 
-            this.changeWindow = changeWindow;
 
-            IsVisibleChanged += reloadBalance;
+            //IsVisibleChanged += reloadBalance;
 
             InitializeComponent();
             balanceLabel.Content= account.balance;
         }
 
-       private void reloadBalance(){
-            balanceLabel.Content= account.balance;
-
-}
-
-         private void withdrawButton_Click(object sender, RoutedEventArgs e)
+        private void openNextWindow(Window window)
         {
-            changeWindow(MainWindow.windowType.withdrawWindow);
+
+
+            window.Closed += Window_Closed;
+            this.Hide();
+            window.Show();
+
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Show();
+            balanceLabel.Content = account.balance;
+        }
+
+        private void withdrawButton_Click(object sender, RoutedEventArgs e)
+        {
+            openNextWindow(new WithdrawWindow(account));
         }
         private void depositButton_Click(object sender, RoutedEventArgs e)
         {
-            changeWindow(MainWindow.windowType.depositWindow);
+            openNextWindow(new DepositWindow(account));
         }
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
-            changeWindow(MainWindow.windowType.accountWindow);
+            this.Close();
         }
         
     }

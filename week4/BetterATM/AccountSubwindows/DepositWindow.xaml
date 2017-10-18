@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="DepositWindow" Height="300" Width="300">
     <Grid>
-      <StackPanel HorizontalAlignment="Center">
+      
         <Label x:Name="balanceLabel" />
-        <TextBox x:Name="depositBox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="depositBox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="81,67,0,0" />
         
-        <Button x:Name="depositButton" Content="Deposit" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="depositButton_Click"/>
+        <Button x:Name="depositButton" Content="Deposit" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="depositButton_Click" Margin="104,125,0,0"/>
         
-        <Button x:Name="returnButton" Content="Return" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click ="returnButton_Click"/>
-      </StackPanel>
+        <Button x:Name="returnButton" Content="Return" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click ="returnButton_Click" Margin="104,166,0,0"/>
+     
     </Grid>
 </Window>

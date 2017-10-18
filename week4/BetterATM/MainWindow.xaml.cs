@@ -20,34 +20,40 @@ namespace BetterATM
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        Window currentWindow;
+       
         AccountWindow accountWindow;
-        BalanceWindow balanceWindow;
-        DepositWindow depositWindow;
-        WithdrawWindow withdrawWindow;
 
         List<Account> accounts;
-
-        public enum windowType{
-            accountWindow,
-            balanceWindow,
-            depositWindow,
-            withdrawWindow
-            }
-
 
         public MainWindow()
         {
             InitializeComponent();
             accounts = new List<Account>();
 
-            accounts.Add(new Account("user1", 1000, "password123"));
-            accounts.Add(new Account("user2", 100000, "password789"));
-            accounts.Add(new Account("user3", 0, "321password"));
-            accounts.Add(new Account("user4", 10000, "password456"));
+            accounts.Add(new Account("user1", 1000, "password123",transferFunds));
+            accounts.Add(new Account("user2", 100000, "password789", transferFunds));
+            accounts.Add(new Account("user3", 0, "321password", transferFunds));
+            accounts.Add(new Account("user4", 10000, "password456", transferFunds));
 
             
+        }
+        private void transferFunds(string accountName, double amount, Account sourceAccount)
+        {
+
+            foreach (Account account in accounts)
+            {
+                
+                if (accountName == account.userName)
+                {
+
+                    sourceAccount.balance -= amount;
+                    account.balance += amount;
+
+                }
+
+
+            }
+
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
@@ -67,13 +73,7 @@ namespace BetterATM
             }
 
             if (userAccount!=null && userAccount.checkPassword(passwordBox.Password)) {
-                accountWindow = new AccountWindow(userAccount, changeWindow);
-                balanceWindow = new BalanceWindow(userAccount, changeWindow);
-                depositWindow = new DepositWindow(userAccount, changeWindow);
-                withdrawWindow = new WithdrawWindow(userAccount, changeWindow);
-                
-                currentWindow = accountWindow;
-
+                accountWindow = new AccountWindow(userAccount);
                 accountWindow.Closed += AccountWindow_Closed;
                 
 
@@ -81,26 +81,14 @@ namespace BetterATM
                 accountWindow.Show();
             }
         }
-        
+
         private void AccountWindow_Closed(object sender, EventArgs e)
         {
-            if(currentWindow==accountWindow){
-                this.Show();
-                userNameBox.Text="";
-                passwordBox.Password="";
-            }
-        }
-        
-        private void changeWindow(windowType window)
-        {
-            currentWindow.Hide();
+         
+            this.Show();
+            userNameBox.Text = "";
+            passwordBox.Password = "";
 
-            if(window==windowType.balanceWindow) currentWindow = balanceWindow;
-            if(window==windowType.accountWindow) currentWindow = accountWindow;
-            if(window==windowType.depositWindow) currentWindow = depositWindow;
-            if(window==windowType.withdrawWindow) currentWindow = withdrawWindow;
-
-            currentWindow.Show();
         }
 
     }

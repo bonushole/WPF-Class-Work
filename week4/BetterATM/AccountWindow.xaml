@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="AccountWindow" Height="300" Width="300">
     <Grid>
-      <StackPanel>
-        <Button x:Name="balanceButton" Content="Balance" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="balanceButton_Click"/>
-        <Button x:Name="withdrawButton" Content="Withdraw" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="withdrawButton_Click"/>
-        <Button x:Name="depositButton" Content="Deposit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click ="depositButton_Click"/>
-        <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click ="logoutButton_Click"/>
-      </StackPanel>
+        <Button x:Name="balanceButton" Content="Balance" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="balanceButton_Click" Margin="103,59,0,0"/>
+        <Button x:Name="withdrawButton" Content="Withdraw" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="withdrawButton_Click" Margin="103,98,0,0"/>
+        <Button x:Name="depositButton" Content="Deposit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click ="depositButton_Click" Margin="103,134,0,0"/>
+            <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click ="logoutButton_Click" Margin="103,211,0,0"/>
+        <Button x:Name="transferButton" Content="Transfer Money" HorizontalAlignment="Left" Margin="95,172,0,0" VerticalAlignment="Top" Width="98" Click="transferButton_Click"/>
+
     </Grid>
 </Window>

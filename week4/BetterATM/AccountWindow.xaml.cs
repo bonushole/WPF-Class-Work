@@ -20,14 +20,13 @@ namespace BetterATM
     public partial class AccountWindow : Window
     {
         Account account;
-        Action<MainWindow.windowType> changeWindow;
 
-        public AccountWindow(Account account, Action<MainWindow.windowType> changeWindow)//(MainWindow.windowType window))
+        public AccountWindow(Account account)//(MainWindow.windowType window))
         {
 
             this.account = account;
 
-            this.changeWindow = changeWindow;
+           
 
             InitializeComponent();
         }
@@ -39,22 +38,36 @@ namespace BetterATM
             this.Show();
         }
 
+        private void openNextWindow(Window window) {
+
+
+            window.Closed += Window_Closed;
+            this.Hide();
+            window.Show();
+
+        }
+
         private void balanceButton_Click(object sender, RoutedEventArgs e)
         {
-            changeWindow(MainWindow.windowType.balanceWindow);
+            openNextWindow(new BalanceWindow(account));
         }
         private void withdrawButton_Click(object sender, RoutedEventArgs e)
         {
-            changeWindow(MainWindow.windowType.withdrawWindow);
+            openNextWindow(new WithdrawWindow(account));
         }
         private void depositButton_Click(object sender, RoutedEventArgs e)
         {
-            changeWindow(MainWindow.windowType.depositWindow);
+            
+            openNextWindow(new DepositWindow(account));
         }
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-        
+
+        private void transferButton_Click(object sender, RoutedEventArgs e)
+        {
+            openNextWindow(new TransferWindow(account));
+        }
     }
 }
