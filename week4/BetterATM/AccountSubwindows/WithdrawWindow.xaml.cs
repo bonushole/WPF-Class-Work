@@ -12,16 +12,35 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace BetterATM.AccountSubwindows
+namespace BetterATM
 {
     /// <summary>
     /// Interaction logic for WithdrawWindow.xaml
     /// </summary>
     public partial class WithdrawWindow : Window
     {
-        public WithdrawWindow()
+        Account account;
+        Action<MainWindow.windowType> changeWindow;
+
+        public WithdrawWindow(Account account, Action<MainWindow.windowType> changeWindow)
         {
+            this.account = account;
+
+            this.changeWindow = changeWindow;
+
             InitializeComponent();
+        }
+        
+        
+
+        private void withdrawButton_Click(object sender, RoutedEventArgs e)
+        {
+            account.balance-=double.Parse(depositBox.Text);
+            changeWindow(MainWindow.windowType.accountWindow);
+        }
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeWindow(MainWindow.windowType.accountWindow);
         }
     }
 }

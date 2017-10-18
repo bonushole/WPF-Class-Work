@@ -12,16 +12,45 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace BetterATM.AccountSubwindows
+namespace BetterATM
 {
     /// <summary>
     /// Interaction logic for BalanceWindow.xaml
     /// </summary>
     public partial class BalanceWindow : Window
     {
-        public BalanceWindow()
+        Account account;
+        Action<MainWindow.windowType> changeWindow;
+
+        public BalanceWindow(Account account, Action<MainWindow.windowType> changeWindow)
         {
+            this.account = account;
+
+            this.changeWindow = changeWindow;
+
+            IsVisibleChanged += reloadBalance;
+
             InitializeComponent();
+            balanceLabel.Content= account.balance;
         }
+
+       private void reloadBalance(){
+            balanceLabel.Content= account.balance;
+
+}
+
+         private void withdrawButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeWindow(MainWindow.windowType.withdrawWindow);
+        }
+        private void depositButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeWindow(MainWindow.windowType.depositWindow);
+        }
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeWindow(MainWindow.windowType.accountWindow);
+        }
+        
     }
 }

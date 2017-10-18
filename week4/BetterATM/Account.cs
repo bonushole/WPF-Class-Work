@@ -9,7 +9,7 @@ namespace BetterATM
     public class Account
     {
         public string userName;
-        double balance;
+        public double balance;
         string password;
 
         public Account(string userName, double balance, string password) {

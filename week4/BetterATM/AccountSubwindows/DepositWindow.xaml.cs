@@ -12,16 +12,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace BetterATM.AccountSubwindows
+namespace BetterATM
 {
     /// <summary>
     /// Interaction logic for DepositWindow.xaml
     /// </summary>
     public partial class DepositWindow : Window
     {
-        public DepositWindow()
+        Account account;
+        Action<MainWindow.windowType> changeWindow;
+
+        public DepositWindow(Account account, Action<MainWindow.windowType> changeWindow)
         {
+            this.account = account;
+
+            this.changeWindow = changeWindow;
+
             InitializeComponent();
+        }
+        
+        private void depositButton_Click(object sender, RoutedEventArgs e)
+        {
+            account.balance+=double.Parse(depositBox.Text);
+            changeWindow(MainWindow.windowType.accountWindow);
+        }
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeWindow(MainWindow.windowType.accountWindow);
         }
     }
 }

@@ -33,6 +33,7 @@ namespace BetterATM
         }
 
 
+
         private void Window_Closed(object sender, EventArgs e)
         {
             this.Show();

@@ -23,9 +23,9 @@ namespace BetterATM
 
         Window currentWindow;
         AccountWindow accountWindow;
-        AccountSubwindows.BalanceWindow balanceWindow;
-        AccountSubwindows.DepositWindow depositWindow;
-        AccountSubwindows.WithdrawWindow withdrawWindow;
+        BalanceWindow balanceWindow;
+        DepositWindow depositWindow;
+        WithdrawWindow withdrawWindow;
 
         List<Account> accounts;
 
@@ -68,9 +68,9 @@ namespace BetterATM
 
             if (userAccount!=null && userAccount.checkPassword(passwordBox.Password)) {
                 accountWindow = new AccountWindow(userAccount, changeWindow);
-                balanceWindow = new AccountSubwindows.BalanceWindow();
-                depositWindow = new AccountSubwindows.DepositWindow();
-                withdrawWindow = new AccountSubwindows.WithdrawWindow();
+                balanceWindow = new BalanceWindow(userAccount, changeWindow);
+                depositWindow = new DepositWindow(userAccount, changeWindow);
+                withdrawWindow = new WithdrawWindow(userAccount, changeWindow);
                 
                 currentWindow = accountWindow;
 
@@ -96,9 +96,9 @@ namespace BetterATM
             currentWindow.Hide();
 
             if(window==windowType.balanceWindow) currentWindow = balanceWindow;
-            if(window==windowType.balanceWindow) currentWindow = balanceWindow;
-            if(window==windowType.balanceWindow) currentWindow = balanceWindow;
-            if(window==windowType.balanceWindow) currentWindow = balanceWindow;
+            if(window==windowType.accountWindow) currentWindow = accountWindow;
+            if(window==windowType.depositWindow) currentWindow = depositWindow;
+            if(window==windowType.withdrawWindow) currentWindow = withdrawWindow;
 
             currentWindow.Show();
         }
