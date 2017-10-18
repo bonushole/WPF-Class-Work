@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -79,6 +80,10 @@ namespace BetterATM
 
                 this.Hide();
                 accountWindow.Show();
+            }
+            else
+            {
+                alertLabel.Content = "Incorrect username/password combination!";
             }
         }
 
