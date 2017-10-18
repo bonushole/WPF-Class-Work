@@ -21,7 +21,21 @@ namespace BetterATM
     public partial class MainWindow : Window
     {
 
+        Window currentWindow;
+        AccountWindow accountWindow;
+        AccountSubwindows.BalanceWindow balanceWindow;
+        AccountSubwindows.DepositWindow depositWindow;
+        AccountSubwindows.WithdrawWindow withdrawWindow;
+
         List<Account> accounts;
+
+        public enum windowType{
+            accountWindow,
+            balanceWindow,
+            depositWindow,
+            withdrawWindow
+            }
+
 
         public MainWindow()
         {
@@ -32,6 +46,7 @@ namespace BetterATM
             accounts.Add(new Account("user2", 100000, "password789"));
             accounts.Add(new Account("user3", 0, "321password"));
             accounts.Add(new Account("user4", 10000, "password456"));
+
             
         }
 
@@ -52,18 +67,40 @@ namespace BetterATM
             }
 
             if (userAccount!=null && userAccount.checkPassword(passwordBox.Password)) {
-                Window accountWindow = new AccountWindow(userAccount);
+                accountWindow = new AccountWindow(userAccount, changeWindow);
+                balanceWindow = new AccountSubwindows.BalanceWindow();
+                depositWindow = new AccountSubwindows.DepositWindow();
+                withdrawWindow = new AccountSubwindows.WithdrawWindow();
+                
+                currentWindow = accountWindow;
 
                 accountWindow.Closed += AccountWindow_Closed;
+                
 
                 this.Hide();
                 accountWindow.Show();
             }
         }
-
+        
         private void AccountWindow_Closed(object sender, EventArgs e)
         {
-            this.Show();
+            if(currentWindow==accountWindow){
+                this.Show();
+                userNameBox.Text="";
+                passwordBox.Password="";
+            }
+        }
+        
+        private void changeWindow(windowType window)
+        {
+            currentWindow.Hide();
+
+            if(window==windowType.balanceWindow) currentWindow = balanceWindow;
+            if(window==windowType.balanceWindow) currentWindow = balanceWindow;
+            if(window==windowType.balanceWindow) currentWindow = balanceWindow;
+            if(window==windowType.balanceWindow) currentWindow = balanceWindow;
+
+            currentWindow.Show();
         }
 
     }

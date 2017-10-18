@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="AccountWindow" Height="300" Width="300">
     <Grid>
-        <Button x:Name="balanceButton" Content="Balance" HorizontalAlignment="Left" Margin="118,59,0,0" VerticalAlignment="Top" Width="75" Click="windowButton_Click()"/>
-        <Button x:Name="button_Copy" Content="Withdraw" HorizontalAlignment="Left" Margin="118,158,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="button_Copy1" Content="Deposit" HorizontalAlignment="Left" Margin="118,108,0,0" VerticalAlignment="Top" Width="75"/>
-
+      <StackPanel>
+        <Button x:Name="balanceButton" Content="Balance" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="balanceButton_Click"/>
+        <Button x:Name="withdrawButton" Content="Withdraw" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="withdrawButton_Click"/>
+        <Button x:Name="depositButton" Content="Deposit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click ="depositButton_Click"/>
+        <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click ="logoutButton_Click"/>
+      </StackPanel>
     </Grid>
 </Window>
