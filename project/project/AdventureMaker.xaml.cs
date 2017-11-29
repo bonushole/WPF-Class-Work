@@ -21,35 +21,48 @@ namespace project
     public partial class AdventureMaker : Window
     {
         ObservableCollection<String> pointTypes = new ObservableCollection<string> {"passive", "bad ending"};
+        GameFile gameFile;
         public AdventureMaker()
         {
             InitializeComponent();
             pointTypeBox.ItemsSource = pointTypes;
+            pointTypeBox.SelectedItem = pointTypes[0];
+            gameFile = new GameFile();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string selected = pointTypeBox.SelectedItem.ToString();
+
+            WrapPanel pointPanel = new WrapPanel();
+            Label pointLabel = new Label();
+            
+
+
             switch (selected)
             {
-                case ("passive"):
-                    {
-                        
-                    }
-                case ("bad ending"):
-                    {
 
-                    }
+                case "passive":
+
+                    gameFile.addPlotpoint(new Passive());
+                    break;
+
+                case "bad ending":
+
+                    gameFile.addPlotpoint(new BadEnding());
+                    break;
+
                 default:
-                    {
-                        this.Hide();
-                    }
-
+                    break;
             }
 
-            Button button = new Button();
-            button.Content = "button";
-            pointsPanel.Children.Add(button);
+
+            
+        }
+
+        private void editTextButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

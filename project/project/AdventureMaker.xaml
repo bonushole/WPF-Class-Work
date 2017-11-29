@@ -12,6 +12,7 @@
             <WrapPanel>
                 <Label Content="plot point type:"/>
                 <ComboBox x:Name="pointTypeBox" Width="120"/>
+                <Button Name="editTextButton" Content="edit text" Click="editTextButton_Click"/>
                 <Button Content="add event" Click="Button_Click"/>
             </WrapPanel>
             <ScrollViewer Height="220">

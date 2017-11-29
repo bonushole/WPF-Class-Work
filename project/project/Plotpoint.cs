@@ -8,5 +8,12 @@ namespace project
 {
     class Plotpoint
     {
+        protected List<Plotpoint> childPointList;
+        public string text;
+
+        public string getText()
+        {
+            return text;
+        }
     }
 }

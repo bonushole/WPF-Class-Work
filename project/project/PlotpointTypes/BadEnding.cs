@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.PlotpointTypes
+namespace project
 {
-    class BadEnding
+    class BadEnding : Plotpoint
     {
     }
 }

@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.PlotpointTypes
+namespace project
 {
-    class Passive
+    class Passive : Plotpoint
     {
+        public Plotpoint nextPoint()
+        {
+            return childPointList[0];
+        }
+            
     }
 }

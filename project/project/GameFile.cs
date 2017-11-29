@@ -14,5 +14,9 @@ namespace project
             plotpoints = new List<Plotpoint>();
         }
 
+        public void addPlotpoint(Plotpoint plotpoint)
+        {
+            plotpoints.Add(plotpoint);
+        }
     }
 }
