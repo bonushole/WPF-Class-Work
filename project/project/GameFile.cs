@@ -8,15 +8,20 @@ namespace project
 {
     class GameFile
     {
-        List<Plotpoint> plotpoints;
+        public List<Plotpoint> plotpoints;
         public GameFile()
         {
             plotpoints = new List<Plotpoint>();
         }
 
-        public void addPlotpoint(Plotpoint plotpoint)
+        public int addPlotpoint(Plotpoint plotpoint)
         {
             plotpoints.Add(plotpoint);
+            return plotpoints.Count;
+        }
+        public Plotpoint getPoint(int index)
+        {
+            return plotpoints[index];
         }
     }
 }

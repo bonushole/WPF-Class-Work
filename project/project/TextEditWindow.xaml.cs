@@ -19,9 +19,19 @@ namespace project
     /// </summary>
     public partial class TextEditWindow : Window
     {
-        public TextEditWindow()
+        Action<string> setTempText;
+
+        public TextEditWindow(Action<string> setTempText)
         {
             InitializeComponent();
+
+            this.setTempText = setTempText;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            setTempText(textBox.Text);
+            this.Close();
         }
     }
 }

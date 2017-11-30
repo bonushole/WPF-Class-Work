@@ -13,13 +13,15 @@
                 <Label Content="plot point type:"/>
                 <ComboBox x:Name="pointTypeBox" Width="120"/>
                 <Button Name="editTextButton" Content="edit text" Click="editTextButton_Click"/>
+                <Button Name="addChildPointButton" Content="add child point" Click="addChildPointButton_Click"/>
                 <Button Content="add event" Click="Button_Click"/>
             </WrapPanel>
-            <ScrollViewer Height="220">
+            <ScrollViewer Height="200">
                 <StackPanel Name="pointsPanel">
 
                 </StackPanel>
             </ScrollViewer>
+                <Button Content="save" Click="Button_Click_1"/>
         </StackPanel>
     </Grid>
 </Window>
