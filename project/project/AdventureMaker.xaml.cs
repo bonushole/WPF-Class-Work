@@ -23,10 +23,13 @@ namespace project
 
     public partial class AdventureMaker : Window
     {
-        ObservableCollection<String> pointTypes = new ObservableCollection<string> { "passive" };//, "bad ending"};
+        ObservableCollection<String> pointTypes = new ObservableCollection<string> { "passive", "regular" };//, "bad ending"};
         GameFile gameFile;
         string tempText;
+        int tempChoiceCount;
         List<Plotpoint> tempPointList;
+
+        Button selectedButton;
 
         Action<GameFile> saveGame;
 
@@ -34,7 +37,7 @@ namespace project
         {
             InitializeComponent();
             pointTypeBox.ItemsSource = pointTypes;
-            pointTypeBox.SelectedItem = pointTypes[0];
+            pointTypeBox.SelectedItem = pointTypes[1];
             gameFile = new GameFile();
 
             this.saveGame = saveGame;
@@ -53,7 +56,10 @@ namespace project
             Button editTextButton = new Button();
             pointPanel.Children.Add(editTextButton);
             editTextButton.Content = "edit text";
-            editTextButton.Click += editTextButton_Click;
+            editTextButton.Click += editText;
+
+            WrapPanel choicesPanel = new WrapPanel();
+            pointPanel.Children.Add(choicesPanel);
 
             Button selectPointButton = new Button();
             selectPointButton.Content = "  ";
@@ -66,20 +72,30 @@ namespace project
             {
 
                 case "passive":
-
-                    pointLabel.Content = gameFile.addPlotpoint(new Passive(tempText, tempPointList, editTextButton));
+                    tempChoiceCount = 1;
+                    pointLabel.Content = gameFile.addPlotpoint(new Passive(tempText, tempChoiceCount, editTextButton));
                     break;
 
                 case "bad ending":
 
                     pointLabel.Content = gameFile.addPlotpoint(new BadEnding());
                     break;
+                case "regular":
+                    tempChoiceCount = choicesBox.SelectedIndex +1;//int.Parse(choicesBox.SelectedItem.ToString());
+                    pointLabel.Content = gameFile.addPlotpoint(new Regular(tempText, tempChoiceCount, editTextButton));
+                    break;
 
                 default:
                     break;
             }
-            
 
+            for (int i=0; i<tempChoiceCount; i++)
+            {
+                Button btn = new Button();
+                btn.Content = "  ";
+                btn.Click +=addChildPointButton_Click;
+                choicesPanel.Children.Add(btn);
+            }
             
         }
 
@@ -89,11 +105,15 @@ namespace project
 
             int index = pointsPanel.Children.IndexOf(senderButton.Parent as UIElement);
 
-            tempPointList = new List<Plotpoint>{ (gameFile.getPoint(pointsPanel.Children.IndexOf(senderButton.Parent as UIElement)))};
+            WrapPanel selectedPanel = selectedButton.Parent as WrapPanel;
+            gameFile.getPoint(pointsPanel.Children.IndexOf(selectedPanel.Parent as UIElement)).childPointList[selectedPanel.Children.IndexOf(selectedButton)]= (gameFile.getPoint(pointsPanel.Children.IndexOf(senderButton.Parent as UIElement)));
+            selectedButton.Content = pointsPanel.Children.IndexOf(senderButton.Parent as UIElement)+1;
+
+            //tempPointList = new List<Plotpoint>{ (gameFile.getPoint(pointsPanel.Children.IndexOf(senderButton.Parent as UIElement)))};
 
             foreach (WrapPanel panel in pointsPanel.Children)
             {
-                panel.Children[2].IsEnabled = false;
+                panel.Children[3].IsEnabled = false;
             }
 
         }
@@ -109,17 +129,27 @@ namespace project
             textWindow.Show();
         }
 
+        private void editText(object sender, RoutedEventArgs e)
+        {
+            Button senderButton = sender as Button;
+            Plotpoint senderPoint = gameFile.getPoint(pointsPanel.Children.IndexOf(senderButton.Parent as UIElement));
+            TextEditWindow textWindow = new TextEditWindow(senderPoint.setText);
+            textWindow.setText(senderPoint.getText());
+            textWindow.Show();
+        }
+
         private void addChildPointButton_Click(object sender, RoutedEventArgs e)
         {
+            selectedButton = sender as Button;
             foreach (WrapPanel panel in pointsPanel.Children)
             {
-                panel.Children[2].IsEnabled = true;
+                panel.Children[3].IsEnabled = true;
             }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            saveGame(gameFile);
 
             this.Close();
         }

@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdvanceablePoint.cs" />
+    <Compile Include="PlotpointTypes\Regular.cs" />
     <Compile Include="TextEditWindow.xaml.cs">
       <DependentUpon>TextEditWindow.xaml</DependentUpon>
     </Compile>

@@ -20,6 +20,7 @@ namespace project
     public partial class TextEditWindow : Window
     {
         Action<string> setTempText;
+        
 
         public TextEditWindow(Action<string> setTempText)
         {
@@ -28,9 +29,14 @@ namespace project
             this.setTempText = setTempText;
         }
 
+        public void setText(string text) 
+        {
+            plotBox.Text = text;
+        }
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            setTempText(textBox.Text);
+            setTempText(plotBox.Text);
             this.Close();
         }
     }

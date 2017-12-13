@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project
 {
-    class GameFile
+    public class GameFile
     {
         public List<Plotpoint> plotpoints;
         public GameFile()

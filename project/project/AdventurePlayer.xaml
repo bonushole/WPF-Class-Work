@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="AdventurePlayer" Height="300" Width="300">
     <Grid>
-        
+        <StackPanel>
+            <Label Name="textPanel" Content="this is the label"/>
+            <WrapPanel Name="choicesPanel">
+                <Button Name="choiceOneButton" Visibility="Collapsed" Content="choice one" Click="choiceButton_Click"/>
+                <Button Name="choiceTwoButton" Visibility="Collapsed" Content="choice two" Click="choiceButton_Click"/>
+                <Button Name="choiceThreeButton" Visibility="Collapsed" Content="choice three" Click="choiceButton_Click"/>
+                <Button Name="choiceFourButton" Visibility="Collapsed" Content="choice four" Click="choiceButton_Click"/>
+                <Button Name="choiceFiveButton" Visibility="Collapsed" Content="choice five" Click="choiceButton_Click"/>
+                <Button Name="choiceSixButton" Visibility="Collapsed" Content="choice six" Click="choiceButton_Click"/>
+            </WrapPanel>
+        </StackPanel>
+
     </Grid>
 </Window>

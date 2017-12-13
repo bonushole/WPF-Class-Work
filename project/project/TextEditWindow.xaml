@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TextEditWindow" Height="300" Width="300">
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="218" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
+        <TextBox x:Name="plotBox" HorizontalAlignment="Left" Height="218" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
         <Button x:Name="button" Content="update" HorizontalAlignment="Left" Margin="180,233,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
 
     </Grid>

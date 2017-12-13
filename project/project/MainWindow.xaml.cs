@@ -20,6 +20,8 @@ namespace project
     /// </summary>
     public partial class MainWindow : Window
     {
+        GameFile savedGame;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,16 +29,29 @@ namespace project
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Window makerWindow = new AdventureMaker();
+            Window makerWindow = new AdventureMaker(saveGame);
 
             makerWindow.Closed += openWindow;
 
             makerWindow.Show();
             this.Hide();
         }
+        private void saveGame(GameFile game)
+        {
+            savedGame = game;
+        }
         private void openWindow(object sender, EventArgs e)
         {
             this.Show();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Window playerWindow = new AdventurePlayer(savedGame);
+
+            playerWindow.Closed += openWindow;
+            playerWindow.Show();
+            this.Hide();
         }
     }
 }

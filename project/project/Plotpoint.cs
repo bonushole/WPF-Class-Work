@@ -7,9 +7,9 @@ using System.Windows.Controls;
 
 namespace project
 {
-    class Plotpoint
+    public class Plotpoint
     {
-        protected List<Plotpoint> childPointList;
+        public Plotpoint[] childPointList;
         public string text;
         Button textEditButton;
 
@@ -17,11 +17,23 @@ namespace project
         {
             return text;
         }
-        public void initialize(string text, List<Plotpoint> childPoints, Button textEditButton)
+
+        public void setText(string text)
         {
             this.text = text;
-            childPointList = childPoints;
+        }
+
+        public int countChoices()
+        {
+            return childPointList.Count();
+        }
+
+        public void initialize(string text, int choiceCount, Button textEditButton)
+        {
+            this.text = text;
+            childPointList = new Plotpoint[choiceCount];
             this.textEditButton = textEditButton;
         }
+        
     }
 }

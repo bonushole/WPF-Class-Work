@@ -7,17 +7,16 @@ using System.Windows.Controls;
 
 namespace project
 {
-    class Passive : Plotpoint, AdvanceablePoint
+    class Regular : Plotpoint, AdvanceablePoint
     {
-        public Passive(string text, int childList, Button textEditButton)
+        public Regular(string text, int childList, Button textEditButton)
         {
             initialize(text, childList, textEditButton);
         }
 
         public Plotpoint nextPoint(int index)
         {
-            return childPointList[0];
+            return childPointList[index];
         }
-            
     }
 }

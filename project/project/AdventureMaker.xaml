@@ -13,7 +13,15 @@
                 <Label Content="plot point type:"/>
                 <ComboBox x:Name="pointTypeBox" Width="120"/>
                 <Button Name="editTextButton" Content="edit text" Click="editTextButton_Click"/>
-                <Button Name="addChildPointButton" Content="add child point" Click="addChildPointButton_Click"/>
+                <ComboBox Name="choicesBox">
+                    <ComboBoxItem Tag="1" Content="1"/>
+                    <ComboBoxItem Tag="2" Content="2"/>
+                    <ComboBoxItem Tag="3" Content="3"/>
+                    <ComboBoxItem Tag="4" Content="4"/>
+                    <ComboBoxItem Tag="5" Content="5"/>
+                    <ComboBoxItem Tag="6" Content="6"/>
+                </ComboBox>
+                <Button Name="addChildPointButton" Content="add child point" Click="addChildPointButton_Click" Visibility="Collapsed"/>
                 <Button Content="add event" Click="Button_Click"/>
             </WrapPanel>
             <ScrollViewer Height="200">
